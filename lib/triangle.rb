@@ -17,7 +17,7 @@ class Triangle
       "scalene"
     end
   end
-  
+
   def not_valid?
     if @side_one=0 || @side_two=0||  @side_three=0
       begin
@@ -34,7 +34,7 @@ class Triangle
     end
   end
 end
- 
+
 class TriangleError < StandardError
   def zero_message
      "triangles with no size are illegal"
