@@ -21,9 +21,9 @@ class Triangle
       rescue TriangleError=>error
         puts error.negative_message
       end
-    
-    
-    
+
+
+
     else
       self.triangle_type
     end
