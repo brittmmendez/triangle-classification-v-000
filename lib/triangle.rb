@@ -6,7 +6,7 @@ class Triangle
     @side_two=side_two
     @side_three=side_three
   end
-  
+
   def kind
       if @side_one<=0 || @side_two<=0||  @side_three<=0
         raise TriangleError
@@ -21,10 +21,10 @@ class Triangle
       end
     end
   end
-  
+
   class TriangleError < StandardError
   def message
      "This tye of triangle is illegal!"
   end
- 
+
  end
