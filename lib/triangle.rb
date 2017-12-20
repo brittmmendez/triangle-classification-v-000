@@ -9,12 +9,21 @@ class Triangle
   end
 
   def valid?
-    if @side_one<=0 || @side_two<=0||  @side_three<=0
+    if @side_one=0 || @side_two=0||  @side_three=0
       begin
         raise TriangleError
       rescue TriangleError=>error
-        puts error.message
+        puts error.zero_message
       end
+    elsif @side_one<0 || @side_two<0||  @side_three<0
+      begin
+        raise TriangleError
+      rescue TriangleError=>error
+        puts error.negative_message
+      end
+    
+    
+    
     else
       self.triangle_type
     end
@@ -32,7 +41,13 @@ class Triangle
 end
 
 class TriangleError < StandardError
- def message
+ def zero_message
+   "triangles with no size are illegal"
+ end
+ def negative_message
+   "triangles with negative sides are illegal"
+ end
+ def inequality_message
    "triangles violating triangle inequality are illegal"
  end
 end
