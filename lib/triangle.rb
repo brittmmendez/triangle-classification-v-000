@@ -11,11 +11,11 @@ class Triangle
   def kind
 
       if @side_one==@side_two and @side_two==@side_three
-          "equilateral"
+          ":equilateral"
       elsif @side_one==@side_two || @side_two==@side_three|| @side_one==@side_three
-          "isosceles"
+          ":isosceles"
       else
-        "scalene"
+        ":scalene"
       end
     end
   end
