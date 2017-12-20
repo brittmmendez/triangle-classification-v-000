@@ -5,10 +5,20 @@ class Triangle
     @side_one=side_one
     @side_two=side_two
     @side_three=side_three
-    valid?
   end
 
-  def valid?
+  def kind
+    self.not_valid?
+    if @side_one==@side_two and @side_two==@side_three
+        "equilateral"
+    elsif @side_one==@side_two || @side_two==@side_three|| @side_one==@side_three
+        "isosceles"
+    else
+      "scalene"
+    end
+  end
+  
+  def not_valid?
     if @side_one=0 || @side_two=0||  @side_three=0
       begin
         raise TriangleError
@@ -21,33 +31,18 @@ class Triangle
       rescue TriangleError=>error
         puts error.negative_message
       end
-
-
-
-    else
-      self.triangle_type
-    end
-  end
-
-  def triangle_type
-    if @side_one==@side_two and @side_two==@side_three
-      "equilateral"
-    elsif @side_one==@side_two || @side_two==@side_three|| @side_one==@side_three
-      "isosceles"
-    else
-      "scalene"
     end
   end
 end
-
+ 
 class TriangleError < StandardError
- def zero_message
-   "triangles with no size are illegal"
+  def zero_message
+     "triangles with no size are illegal"
+  end
+  def negative_message
+     "triangles with negative sides are illegal"
+  end
+  def inequality_message
+     "triangles violating triangle inequality are illegal"
+  end
  end
- def negative_message
-   "triangles with negative sides are illegal"
- end
- def inequality_message
-   "triangles violating triangle inequality are illegal"
- end
-end
