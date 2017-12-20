@@ -9,10 +9,11 @@ class Triangle
 
   def kind
     self.not_valid?
-    if @side_one==@side_two and @side_two==@side_three
-        "equilateral"
-    elsif @side_one==@side_two || @side_two==@side_three|| @side_one==@side_three
+    if @side_one==@side_two || @side_two==@side_three|| @side_one==@side_three
         "isosceles"
+    elsif @side_one==@side_two and @side_two==@side_three
+            "equilateral"
+
     else
       "scalene"
     end
